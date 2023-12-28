@@ -30,9 +30,8 @@ dmg:
 linux:
   target:
     - AppImage
-    - snap
     - deb
-  maintainer: otis.org
+  maintainer: otus.org
   category: Utility
 appImage:
   artifactName: ${name}-${version}.${ext}
