@@ -1,11 +1,13 @@
 <script setup>
 import { ref } from 'vue'
-const readDir = window.api.readDir
 
 const dir = ref([])
 
 const scanDir = () => {
-  dir.value = readDir('.')
+  window.electron.ipcRenderer
+    .invoke('dir', '.')
+    .then((files) => (dir.value = files))
+    .catch(console.error)
 }
 </script>
 

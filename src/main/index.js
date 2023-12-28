@@ -1,5 +1,6 @@
-import { app, shell, BrowserWindow } from 'electron'
+import { app, shell, ipcMain, BrowserWindow } from 'electron'
 import { join } from 'path'
+import fs from 'fs'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
@@ -67,5 +68,13 @@ app.on('window-all-closed', () => {
   }
 })
 
-// In this file you can include the rest of your app"s specific main process
-// code. You can also put them in separate files and require them here.
+function readDir(dir) {
+  return new Promise((resolve, reject) => {
+    fs.readdir(dir, { withFileTypes: true }, (error, files) => {
+      error && reject(error)
+      resolve(files.filter((e) => e.isFile()).map((e) => e.name))
+    })
+  })
+}
+
+ipcMain.handle('dir', (event, dir) => readDir(dir))
