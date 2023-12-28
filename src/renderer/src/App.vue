@@ -3,11 +3,16 @@ import { ref } from 'vue'
 
 const dir = ref([])
 
+window.electron.ipcRenderer.on('files', (event, files) => {
+  dir.value = files
+})
+
 const scanDir = () => {
   window.electron.ipcRenderer
     .invoke('dir', '.')
     .then((files) => (dir.value = files))
     .catch(console.error)
+  window.electron.ipcRenderer.send('watch', '.')
 }
 </script>
 

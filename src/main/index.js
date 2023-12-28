@@ -78,3 +78,9 @@ function readDir(dir) {
 }
 
 ipcMain.handle('dir', (event, dir) => readDir(dir))
+
+ipcMain.on('watch', (event, dir) => {
+  fs.watch(dir, () => {
+    readDir(dir).then((files) => event.reply('files', files))
+  })
+})
