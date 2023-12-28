@@ -1,5 +1,14 @@
 # electron-vue-otus
 
+## Read directory with Preload API
+https://gist.github.com/georgius1024/647ab908210128b8c874624dda78d42a
+
+## Read directory with handle/send
+https://gist.github.com/georgius1024/a06ff5ea0d9706ba924bf26ae0138f1f
+
+## Refresh directory with on/send
+https://gist.github.com/georgius1024/841c5c0d9c2f69d9b0a868b710dec013
+
 An Electron application with Vue
 
 ## Recommended IDE Setup
