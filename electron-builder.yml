@@ -1,5 +1,5 @@
-appId: com.electron.app
-productName: electron-vue-otus
+appId: com.electron.otus-vue-app
+productName: otus-electron-vue-otus
 directories:
   buildResources: build
 files:
@@ -32,7 +32,7 @@ linux:
     - AppImage
     - snap
     - deb
-  maintainer: electronjs.org
+  maintainer: otis.org
   category: Utility
 appImage:
   artifactName: ${name}-${version}.${ext}
